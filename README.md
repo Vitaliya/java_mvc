@@ -10,13 +10,18 @@ java_mvc
 # su - postgres
 # psql
 postgres=# CREATE USER vitaliya WITH password 'casualties';
+
 postgres=# CREATE DATABASE tourfirm WITH OWNER vitaliya;
+
 postgres=# \q
 
 3) Загружаем в БД все данные, для этого с помощью команды exit выходим в свой домашний каталог, переходим в папку с моими скриптами и файлами и в ней выполняем:
 # psql tourfirm < scheme_mvc.sql
+
 # psql tourfirm < insert_mvc.sql 
+
 # psql tourfirm < procedure_mvc.sql
+
 будем надеяться что все прошло успешно и все данные загрузились в БД
 
 4) Заходим через консоль в дирикторию с java проектом: cd /..../h_mvc
