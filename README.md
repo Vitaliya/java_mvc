@@ -22,6 +22,20 @@ postgres=# \q
 
 # psql tourfirm < procedure_mvc.sql
 
+# psql tourfirm
+
+tourfirm=> 
+GRANT ALL PRIVILEGES ON TABLE Hotel TO vitaliya;
+GRANT ALL PRIVILEGES ON TABLE Transport TO vitaliya;
+GRANT ALL PRIVILEGES ON TABLE Season TO vitaliya;
+GRANT ALL PRIVILEGES ON TABLE Room TO vitaliya;
+GRANT ALL PRIVILEGES ON TABLE Provider TO vitaliya;
+GRANT ALL PRIVILEGES ON TABLE Permit TO vitaliya;
+GRANT ALL PRIVILEGES ON TABLE Hotel_Provider TO vitaliya;
+GRANT ALL PRIVILEGES ON TABLE Buyer TO vitaliya;
+
+tourfirm=> \q
+
 будем надеяться что все прошло успешно и все данные загрузились в БД
 
 4) Заходим через консоль в дирикторию с java проектом: cd /..../h_mvc
