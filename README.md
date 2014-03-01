@@ -26,12 +26,19 @@ postgres=# \q
 
 tourfirm=> 
 GRANT ALL PRIVILEGES ON TABLE Hotel TO vitaliya;
+
 GRANT ALL PRIVILEGES ON TABLE Transport TO vitaliya;
+
 GRANT ALL PRIVILEGES ON TABLE Season TO vitaliya;
+
 GRANT ALL PRIVILEGES ON TABLE Room TO vitaliya;
+
 GRANT ALL PRIVILEGES ON TABLE Provider TO vitaliya;
+
 GRANT ALL PRIVILEGES ON TABLE Permit TO vitaliya;
+
 GRANT ALL PRIVILEGES ON TABLE Hotel_Provider TO vitaliya;
+
 GRANT ALL PRIVILEGES ON TABLE Buyer TO vitaliya;
 
 tourfirm=> \q
