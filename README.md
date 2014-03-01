@@ -1,7 +1,7 @@
 java_mvc
 ========
 Описание:
-Заказ туристической путевки (mvc, hibernate, postgres, play, html)
+Заказ туристической путевки (java, mvc, hibernate, postgres, play, html)
 
 
 1) Необходима Linux'о подобная система с установленным postgres (от 8.4 до 9.1.8 все подойдут)
