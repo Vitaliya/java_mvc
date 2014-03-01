@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Подбор отеля' /}
+
+#{if error}
+<p><b>Статус/Ошибка : ${error}</b></p>
+#{/if}
+
+<p></p>
+
+<br>
+<table> <tbody>
+	<form action="@{Application.index()}">
+		<tr><td>Страна:</td><td><input type="text" name="country" size="12"></td></tr>
+		<tr><td>Город:</td><td><input type="text" name="town" size="12"></td></tr>
+		<tr><td><input type="submit" value="Подбор отеля"></td></tr>
+	</form>
+</tbody></table> <br>
+ 
+<table>
+	<thead>
+		<tr>
+			<th class="name">Название отеля</th>
+			<th class="stars_number">Кол-во звезд</th>
+			<th class="country">Страна</th>
+			<th class="town">Город</th>
+		</tr>
+	</thead>
+	<tbody>
+		#{list hotels, as:'hotel'}
+		<tr class="Hotel" Id="${hotel.getId()}" draggable="true">
+		
+		
+			<td id="name-${hotel.getId()}">
+			<a href="@{Application.GetHotel()}?id_hotel=${hotel.getId()}">
+		
+			
+			${hotel.getName_hotel()}</a>		
+			
+			</td>
+			<td id="stars_number-${hotel.getId()}">${hotel.getStars()}</td>
+			<td id="country-${hotel.getId()}">${hotel.getCountry()}</td>
+			<td id="town-${hotel.getId()}">${hotel.getTown()}</td>
+		</tr>
+		#{/list}
+	</tbody>
+</form>
+</table>

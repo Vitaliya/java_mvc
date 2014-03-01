@@ -1,0 +1,42 @@
+#{extends 'main.html' /}
+#{set title:'Подбор комнаты' /}
+
+
+#{if error}
+<p><b>Ошибка : ${error}</b></p>
+#{/if}
+
+<p></p>
+
+<form action="@{Application.InputForm()}">
+<input type="hidden" name="id_hotel" value="${hotel.getId()}">
+<table>
+	<thead>
+		<tr>
+			<th class="radio"></th>
+			<th class="type">Тип комнаты</th>
+			<th class="bar">Бар</th>
+			<th class="cost">Стоимость</th>
+			<th class="free">Свободных</th>
+		</tr>
+	</thead>
+	<tbody>
+		#{list hotel.getRoom(), as:'room'}
+		<tr class="Room" Id="${room.getId()}" draggable="true">
+			<td id="check-${room.getId()}">
+			<input type="radio" name="id_room" value=${room.getId()}>
+			</td>
+			<td id="type-${room.getId()}">${room.getType_of_room()}</td>
+			<td id="bar-${room.getId()}">${room.getBar()}</td>
+			<td id="cost-${room.getId()}">${room.getCost()}</td>
+			<td id="free-${room.getId()}">${room.getFull_room()}</td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+
+
+
+	<td><input type="submit" value="Бронировать тур!"></td>
+</form>	
+	

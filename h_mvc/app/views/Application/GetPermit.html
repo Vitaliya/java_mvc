@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'Оформление путевки' /}
+
+#{if error}
+<p><b>Ошибка : ${error}</b></p>
+#{/if}
+
+<p></p>
+
+<br>
+<form action="@{Application.Result()}">
+<table> <tbody>
+	<input type="hidden" name="id_room" value="${id_room}">
+	<input type="hidden" name="id_buyer" value="${id_buyer}">
+	<tr><td>Дата отправления:</td><td> <input type="date" name="date"></td></tr>
+	<tr><td>Период:</td><td><input type="text" name="period" size="12"></td></tr>
+	<tr><td>Транспорт:</td>
+	<td><select name="id_transport">
+    	<option value="3">Автобус </option>
+    	<option value="2">Поезд </option>
+    	<option value="1">Самолет </option>
+	</select></td></tr>
+	<tr><td><input type="submit" value="Оформить"></td></tr>
+</tbody></table> <br>
+</form>
+ 

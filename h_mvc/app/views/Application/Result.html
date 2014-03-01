@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'Путевка' /}
+
+
+<p><b>Путевка</b></p>      	
+	<br>
+	<table> <tbody>
+		<form action="@{Application.Commit()}">
+		<input type="hidden" name="id_permit" value="${permit.getId()}">
+		<tr><td>Имя :</td><td>${permit.getBuyer().getName_buyer()}</td></tr>
+		<tr><td>Фамилия :</td><td>${permit.getBuyer().getSurname()}</td></tr>
+		<tr><td>Отчество :</td><td>${permit.getBuyer().getMiddle_name()}</td></tr>
+		<tr><td>Серия и номер паспорта :</td><td>${permit.getBuyer().getPassport_data()}</td></tr>
+		<tr><td>Номер загранпаспорта :</td><td>${permit.getBuyer().getZagran_passport()}</td></tr>
+		<tr><td>Страна :</td><td>${permit.getRoom().getHotel().getCountry()}</td></tr>
+		<tr><td>Город :</td><td>${permit.getRoom().getHotel().getTown()}</td></tr>
+		<tr><td>Название отеля :</td><td>${permit.getRoom().getHotel().getName_hotel()}</td></tr>
+		<tr><td>Колличество звезд :</td><td>${permit.getRoom().getHotel().getStars()}</td></tr>
+		<tr><td>Тип комнаты :</td><td>${permit.getRoom().getType_of_room()}</td></tr>
+		<tr><td>Наличие бара :</td><td>${permit.getRoom().getBar()}</td></tr>
+		<tr><td>Суточная стоимость :</td><td>${permit.getRoom().getCost()}</td></tr>
+		<tr><td>Транспорт :</td><td>${permit.getTransport().getType_of_transport()}</td></tr>
+		<tr><td>Дата отправления :</td><td>${permit.getStart_date()}</td></tr>
+		<tr><td>Колличество дней :</td><td>${permit.getPeriod()}</td></tr>
+		<tr><td>Сумарная стоимость :</td><td>${permit.getFinal_sum()}</td></tr>
+		<td id="check-${permit.getId()}">
+			<input type="checkbox" name="check" value="1"}>
+			Подтверждение заказа</td></tr>
+		
+		<tr><td><input type="submit" value="Продолжить"></td></tr>
+	</form>
+</tbody></table> <br>
+ 
