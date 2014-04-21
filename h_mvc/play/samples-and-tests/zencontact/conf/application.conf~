@@ -1,30 +1,33 @@
 # This is the main configuration file for the application.
 # ~~~~~
-application.name=h_mvc
+application.name=Zencontact, by zenexity
 
 # Application mode
 # ~~~~~
 # Set to dev to enable instant reloading and other development help.
 # Otherwise set to prod.
 application.mode=dev
-%prod.application.mode=prod
 
 # Secret key
 # ~~~~~
 # The secret key is used to secure cryptographics functions
 # If you deploy your application to several instances be sure to use the same key !
-application.secret=P8m9oqzuOHwsJJ8SnV952mSVdGHAlkaj4d0oW2yAZit4kMqE73BNMdjKis3a1RwT
+application.secret=yef04qgk2ul2ktfz9ikn2sc008u9yw9hode8u8dtslmg79yelaam72qr5ahrbico
 
 # Additional modules
 # ~~~~~
 # A module is another play! application. Add a line for each module you want
 # to add to your application. Modules path are either absolutes or relative to
 # the application root.
-# They get loaded from top to bottom; Syntax: module.{name}={path}
 #
-# Keep the next line as is to help the play script to manage modules.
-# ---- MODULES ----
-
+#module.crud=${play.path}/modules/crud
+#module.secure=${play.path}/modules/secure
+#module.ecss=${play.path}/modules/ecss
+#module.gae=${play.path}/modules/gae
+#module.gwt=${play.path}/modules/gwt
+#module.search=${play.path}/modules/search
+#module.siena=${play.path}/modules/siena
+#module.spring=${play.path}/modules/spring
 
 # i18n
 # ~~~~~
@@ -32,15 +35,12 @@ application.secret=P8m9oqzuOHwsJJ8SnV952mSVdGHAlkaj4d0oW2yAZit4kMqE73BNMdjKis3a1
 # You can then place localized messages in conf/messages.{locale} files
 # application.langs=fr,en,ja
 
-# Date format
-# ~~~~~
 date.format=yyyy-MM-dd
-# date.format.fr=dd/MM/yyyy
 
 # Server configuration
 # ~~~~~
 # If you need to change the HTTP port, uncomment this (default is set to 9000)
-# http.port=9000
+http.port=9001
 #
 # By default the server listen for HTTP on the wilcard address.
 # You can restrict this.
@@ -49,19 +49,13 @@ date.format=yyyy-MM-dd
 # Session configuration
 # ~~~~~~~~~~~~~~~~~~~~~~
 # By default, session will be written to the transient PLAY_SESSION cookie.
-# The cookies are not secured by default, only set it to true
-# if you're serving your pages through https.
 # application.session.cookie=PLAY
 # application.session.maxAge=1h
-# application.session.secure=false
 
-# JVM configuration
+# JPDA configuration
 # ~~~~~
 # Define which port is used by JPDA when application is in debug mode (default is set to 8000)
 # jpda.port=8000
-#
-# Java source level => 1.5, 1.6 or 1.7 (experimental)
-# java.source=1.5
 
 # Log level
 # ~~~~~
@@ -80,21 +74,21 @@ date.format=yyyy-MM-dd
 # To quickly set up a development database, use either:
 #   - mem : for a transient in memory database (HSQL in memory)
 #   - fs  : for a simple file written database (HSQL file stored)
-# db=mem
+db=mem
 #
 # To connect to a local MySQL5 database, use:
 # db=mysql:user:pwd@database_name
 #
 # If you need a full JDBC configuration use the following :
-db.url=jdbc:postgresql://127.0.0.1:5432/tourfirm
-db.driver=org.postgresql.Driver
-db.user=vitaliya
-db.pass=casualties
+# db.url=jdbc:postgresql:database_name
+# db.driver=org.postgresql.Driver
+# db.user=root
+# db.pass=secret
 #
 # Connections pool configuration :
-db.pool.timeout=1000
-db.pool.maxSize=30
-db.pool.minSize=10
+# db.pool.timeout=1000
+# db.pool.maxSize=30
+# db.pool.minSize=10
 #
 # If you want to reuse an existing Datasource from your application server, use:
 # db=java:/comp/env/jdbc/myDatasource
@@ -103,22 +97,17 @@ db.pool.minSize=10
 # ~~~~~
 #
 # Specify the custom JPA dialect to use here (default to guess):
-jpa.dialect=org.hibernate.dialect.PostgreSQLDialect
+# jpa.dialect=org.hibernate.dialect.PostgreSQLDialect
 #
-# Specify the ddl generation pattern to use. Set to none to disable it 
-# (default to update in DEV mode, and none in PROD mode):
-#jpa.ddl=validate
- jpa.ddl=update
+# Specify the ddl generation pattern to use (default to update, set to none to disable it):
+# jpa.ddl=update
 #
 # Debug SQL statements (logged using DEBUG level):
-jpa.debugSQL=true
+# jpa.debugSQL=true
 #
 # You can even specify additional hibernate properties here:
 # hibernate.use_sql_comments=true
 # ...
-#
-# Store path for Blob content
-attachments.path=data/attachments
 
 # Memcached configuration
 # ~~~~~ 
@@ -137,14 +126,11 @@ attachments.path=data/attachments
 # Set the default max-age, telling the user's browser how long it should cache the page.
 # Default is 3600 (one hour). Set it to 0 to send no-cache.
 # This is only read in prod mode, in dev mode the cache is disabled.
-# http.cacheControl=3600
+http.cacheControl=3600
 
 # If enabled, Play will generate entity tags automatically and send a 304 when needed.
 # Default is true, set it to false to deactivate use of entity tags.
-# http.useETag=true
-
-# Custom mime types
-# mimetype.xpi=application/x-xpinstall
+http.useETag=true
 
 # WS configuration
 # ~~~~~
@@ -165,11 +151,6 @@ mail.smtp=mock
 # mail.smtp.pass=
 # mail.smtp.channel=ssl
 
-# Jobs executor
-# ~~~~~~
-# Size of the Jobs pool
-# play.jobs.pool=10
-
 # Execution pool
 # ~~~~~
 # Default to 1 thread in DEV mode or (nb processors + 1) threads in PROD mode.
@@ -178,8 +159,8 @@ mail.smtp=mock
 
 # Open file from errors pages
 # ~~~~~
-# If your text editor supports opening files by URL, Play! will
-# dynamically link error pages to files 
+# If your text editor supports to open files using URL, Play! will link
+# error pages to files dynamically
 #
 # Example, for textmate:
 # play.editor=txmt://open?url=file://%s&line=%s
@@ -192,3 +173,8 @@ mail.smtp=mock
 %test.jpa.ddl=create-drop
 %test.mail.smtp=mock
 
+# These features will be automatically enabled in the 1.1 release
+# For now you can enable them if you want
+# ~~~~~
+future.bindJPAObjects=true
+future.escapeInTemplates=true

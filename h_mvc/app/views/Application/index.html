@@ -2,7 +2,11 @@
 #{set title:'Подбор отеля' /}
 
 #{if error}
-<p><b>Статус/Ошибка : ${error}</b></p>
+<p><b>Ошибка : ${error}</b></p>
+#{/if}
+
+#{if countr}
+<p><b>Статус/Ошибка : ${countr}</b></p>
 #{/if}
 
 <p></p>
@@ -10,8 +14,8 @@
 <br>
 <table> <tbody>
 	<form action="@{Application.index()}">
-		<tr><td>Страна:</td><td><input type="text" name="country" size="12"></td></tr>
-		<tr><td>Город:</td><td><input type="text" name="town" size="12"></td></tr>
+		<tr><td>Страна:</td><td><input type="text" name="country" value="${old_country}" size="12"></td></tr>
+		<tr><td>Город:</td><td><input type="text" name="town" value="${old_town}" size="12"></td></tr>
 		<tr><td><input type="submit" value="Подбор отеля"></td></tr>
 	</form>
 </tbody></table> <br>

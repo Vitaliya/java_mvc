@@ -1,0 +1,51 @@
+#{extends 'main.html' /}
+#{set title:'Путевки' /}
+
+
+#{if error}
+<p><b>Статус : ${error}</b></p>
+#{/if}
+
+<p></p>
+
+<br>
+<table>
+	<thead>
+	<form action="@{Application.index()}">
+		<tr>
+			<th class="name">Имя</th>
+			<th class="surname">Фамилия</th>
+			<th class="middle_name">Отчество</th>
+			<th class="name_hotel">Название отеля</th>
+			<th class="stars_number">Кол-во звезд</th>
+			<th class="country">Страна</th>
+			<th class="town">Город</th>
+			<th class="type_of_room">Тип комнаты</th>
+			<th class="cost">Суточная стоимость</th>
+			<th class="transport">Транспорт</th>
+			<th class="period">Колличество дней</th>
+			<th class="final_sum">Сумарная стоимость</th>
+		</tr>
+		</from>
+	</thead>
+	<tbody>
+		#{list permits, as:'permit'}
+		<tr class="Permit" Id="${permit.getId()}" draggable="true">
+			<td id="name-${permit.getId()}">${permit.getBuyer().getName_buyer()}</td>
+			<td id="surname-${permit.getId()}">${permit.getBuyer().getSurname()}</td>
+			<td id="middle_name-${permit.getId()}">${permit.getBuyer().getMiddle_name()}</td>
+			<td id="name_hotel-${permit.getId()}">${permit.getRoom().getHotel().getName_hotel()}</td>
+			<td id="stars_number-${permit.getId()}">${permit.getRoom().getHotel().getStars()}</td>
+			<td id="country-${permit.getId()}">${permit.getRoom().getHotel().getCountry()}</td>
+			<td id="town-${permit.getId()}">${permit.getRoom().getHotel().getTown()}</td>
+			<td id="type_of_room-${permit.getId()}">${permit.getRoom().getType_of_room()}</td>
+			<td id="cost-${permit.getId()}">${permit.getRoom().getCost()}</td>
+			<td id="transport-${permit.getId()}">${permit.getTransport().getType_of_transport()}</td>
+			<td id="period-${permit.getId()}">${permit.getPeriod()}</td>
+			<td id="final_sum-${permit.getId()}">${permit.getFinal_sum()}</td>
+		</tr>
+		#{/list}
+		<tr><td><input type="submit" value="Завершить"></td></tr>
+	</tbody>
+</form>
+</table>
